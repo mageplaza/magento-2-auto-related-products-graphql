@@ -1,0 +1,75 @@
+type Query {
+    mpARPProductPage(
+        filter: MageplazaAutoRelatedBlockRulesFilterInput @doc(description: "Identifies which Mageplaza Auto Related Products attributes to search for and return."),
+        productFilter: ProductFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        pageSize: Int = 5 @doc(description: "Number of items should be shown on the page"),
+        currentPage: Int = 1 @doc(description: "Allow page number to start from 1")
+    ):MageplazaAutoRelatedRulesOutput @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules") @doc(description: "Queries search for Mageplaza Auto Related Products that match the filtered criteria.")
+}
+input MageplazaAutoRelatedBlockRulesFilterInput {
+    rule_id: FilterTypeInput @doc(description: "Rule Id")
+    name: FilterTypeInput @doc(description: "Name")
+    block_type: FilterTypeInput @doc(description: "Block Type")
+    from_date: FilterTypeInput @doc(description: "From Date")
+    to_date: FilterTypeInput @doc(description: "To Date")
+    is_active: FilterTypeInput @doc(description: "Is Active")
+    sort_order: FilterTypeInput @doc(description: "Sort Order")
+    parent_id: FilterTypeInput @doc(description: "Parent Id")
+    impression: FilterTypeInput @doc(description: "Impression")
+    click: FilterTypeInput @doc(description: "Click")
+    location: FilterTypeInput @doc(description: "Location")
+    block_name: FilterTypeInput @doc(description: "Block Name")
+    limit_number: FilterTypeInput @doc(description: "Limit Number")
+    product_layout: FilterTypeInput @doc(description: "Product Layout")
+    sort_order_direction: FilterTypeInput @doc(description: "Sort Order Direction")
+    total_impression: FilterTypeInput @doc(description: "Total Impression")
+    total_click: FilterTypeInput @doc(description: "Total Click")
+    created_at: FilterTypeInput @doc(description: "Created At")
+    updated_at: FilterTypeInput @doc(description: "Updated At")
+    display_mode: FilterTypeInput @doc(description: "Display Mode")
+}
+type MageplazaAutoRelatedRulesOutput {
+    total_count: Int @doc(description: "The total number of results returned when a query is applied"),
+    items: [MageplazaAutoRelatedRules] @doc(description: "Mageplaza Auto Related data is satisfied"),
+    page_info: SearchResultPageInfo @doc(description: "An object that includes the page info and current page values specified in the query")
+}
+
+type MageplazaAutoRelatedRules {
+  rule_id: Int @doc(description: "Rule Id")
+  name: String @doc(description: "Name")
+  block_type: String @doc(description: "Block Type")
+  from_date: String @doc(description: "From Date")
+  to_date: String @doc(description: "To Date")
+  is_active: Int @doc(description: "Is Active")
+  conditions: RuleCondition @doc(description: "Conditions of Rule") @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules\\Conditions")
+  actions: RuleCondition @doc(description: "Condition to show product") @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules\\Actions")
+  category_conditions_serialized: String @doc(description: "Category Conditions Serialized")
+  sort_order: Int @doc(description: "Sort Order")
+  parent_id: Int @doc(description: "Parent Id")
+  impression: Int @doc(description: "Impression")
+  click: Int @doc(description: "Click")
+  location: String @doc(description: "Location")
+  block_name: String @doc(description: "Block Name")
+  limit_number: Int @doc(description: "Limit Number")
+  display_out_of_stock: Int @doc(description: "Display Out Of Stock")
+  product_layout: Int @doc(description: "Product Layout")
+  sort_order_direction: Int @doc(description: "Sort Order Direction")
+  display_additional: String @doc(description: "Display Additional")
+  add_ruc_product: String @doc(description: "Add Ruc Product")
+  product_not_displayed: String @doc(description: "Product Not Displayed")
+  total_impression: Int @doc(description: "Total Impression")
+  total_click: Int @doc(description: "Total Click")
+  created_at: String @doc(description: "Created At")
+  updated_at: String @doc(description: "Updated At")
+  display_mode: Int @doc(description: "Display Mode")
+  match_products: [ProductInterface] @doc(description: "Products are matched by rule") @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Products")
+}
+
+type RuleCondition {
+  type: String @doc(description: "Condition type")
+  attribute: String @doc(description: "Condition attribute")
+  operator: String @doc(description: "Conditions operator")
+  value: [String] @doc(description: "Conditions value")
+  aggregator: String @doc(description: "Conditions aggregator")
+  conditions: [RuleCondition] @doc(description: "Conditions")
+}
