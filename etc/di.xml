@@ -26,6 +26,9 @@
         <arguments>
             <argument name="attributesInstances" xsi:type="array">
                 <item name="mpARPProductPage" xsi:type="object">Mageplaza\AutoRelatedGraphQl\Model\Resolver\Rules\FilterArgument\EntityAttributesForAst</item>
+                <item name="mpARPCategoryPage" xsi:type="object">Mageplaza\AutoRelatedGraphQl\Model\Resolver\Rules\FilterArgument\EntityAttributesForAst</item>
+                <item name="mpARPShoppingCartPage" xsi:type="object">Mageplaza\AutoRelatedGraphQl\Model\Resolver\Rules\FilterArgument\EntityAttributesForAst</item>
+                <item name="mpARPCheckoutPage" xsi:type="object">Mageplaza\AutoRelatedGraphQl\Model\Resolver\Rules\FilterArgument\EntityAttributesForAst</item>
             </argument>
         </arguments>
     </type>
