@@ -89,7 +89,20 @@ class Rules implements ResolverInterface
             $args['filter'] = $args['productFilter'];
             $productSearch = $this->searchCriteriaBuilder->build('products', $args);
         }
-        $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch);
+        switch ($field->getName()) {
+            case 'mpARPProductPage':
+                $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch);
+                break;
+            case 'mpARPCategoryPage':
+                $searchResult = $this->autoRelatedRepository->getRuleCategoryPage($searchCriteria, $productSearch);
+                break;
+            case 'mpARPShoppingCartPage':
+                $searchResult = $this->autoRelatedRepository->getRuleCartPage($searchCriteria, $productSearch);
+                break;
+            case 'mpARPCheckoutPage':
+                $searchResult = $this->autoRelatedRepository->getRuleOSCPage($searchCriteria, $productSearch);
+                break;
+        }
         $result = [];
         foreach ($searchResult->getItems() as $rule) {
             $ruleData          = $rule->getData();
