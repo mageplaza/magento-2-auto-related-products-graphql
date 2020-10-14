@@ -1,3 +1,4 @@
+# Magento 2 Auto Related Products GraphQL / PWA
 ## How to install
 Run the following command in Magento 2 root folder:
 
@@ -7,7 +8,7 @@ php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
 
-**Mageplaza’s Size Chart** allows admins to get the rule’s information through GraphQL.
+**Magento 2 Auto Related Products GraphQL/PWA** allows admins to get the rule’s information through GraphQL.
 
 To start working with Automatic Related Product GraphQL in Magento, you need to:
 
