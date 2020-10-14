@@ -12,5 +12,7 @@ php bin/magento setup:static-content:deploy
 
 To start working with Automatic Related Product GraphQL in Magento, you need to:
 
-- Use Magento 2.3.x, Return your site to developer mode
-- Refer to our supported GraphQL requests <a href='https://documenter.getpostman.com/view/10589000/SzfCVSAP?version=latest' target='_blank' rel='nofollow'>here</a>
+- Use Magento 2.3.x or higher, Return your site to developer mode
+- Refer to our supported GraphQL requests https://documenter.getpostman.com/view/10589000/SzfCVSAP?version=latest
+
+![arp](https://i.imgur.com/5hIdIBg.png)
