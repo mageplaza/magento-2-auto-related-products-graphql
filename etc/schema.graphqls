@@ -23,6 +23,12 @@ type Query {
         pageSize: Int = 5 @doc(description: "Number of items should be shown on the page"),
         currentPage: Int = 1 @doc(description: "Allow page number to start from 1")
     ):MageplazaAutoRelatedRulesOutput @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules") @doc(description: "Queries search for Mageplaza Auto Related Products that match the filtered criteria.")
+    mpARPUpdateTotal(
+        ruleId: Int @doc(description: "Id of the Auto Related Product Rule")
+    ):Boolean @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules\\UpdateTotal") @doc(description: "Query to update total for Mageplaza Auto Related Product that match rule id.")
+}
+type StoreConfig @doc(description: "The type contains information about a store config") {
+    mp_arp_is_enable : Int @doc(description: "check Mageplaza Auto Related Product is enabled")
 }
 input MageplazaAutoRelatedBlockRulesFilterInput {
     rule_id: FilterTypeInput @doc(description: "Rule Id")
