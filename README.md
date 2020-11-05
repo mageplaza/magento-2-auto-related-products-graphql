@@ -43,7 +43,7 @@ To perform GraphQL queries in Magento, please do the following requirements:
 
 ## 3. Devdocs
 
-- [Magento 2 Auto Related Products APi & examples](https://documenter.getpostman.com/view/10589000/SzfCVSAN?version=latest)
+- [Magento 2 Auto Related Products API & examples](https://documenter.getpostman.com/view/10589000/SzfCVSAN?version=latest)
 - [Magento 2 Auto Related Products GRaphQL & examples](https://documenter.getpostman.com/view/10589000/SzS1T8pe?version=latest)
 
 Click on Run in Postman to add these collections to your workspace quickly. 
