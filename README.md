@@ -56,5 +56,5 @@ Fee free to **Fork** and contribute to this module. You can also create a pull r
 
 ## 5. Get Support
 
-- Feel free to contact us if you have any questions. 
+- Feel free to [contact us](https://www.mageplaza.com/contact.html) if you have any questions. 
 - If you find this project helpful, please give us a **Star** ![star](https://i.imgur.com/S8e0ctO.png)
