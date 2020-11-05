@@ -24,6 +24,7 @@ namespace Mageplaza\AutoRelatedGraphQl\Model\Resolver\Rules\FilterArgument;
 
 use Magento\Framework\GraphQl\ConfigInterface;
 use Magento\Framework\GraphQl\Query\Resolver\Argument\FieldEntityAttributesInterface;
+use Mageplaza\AutoRelated\Helper\Data;
 
 /**
  * Class EntityAttributesForAst
@@ -31,20 +32,27 @@ use Magento\Framework\GraphQl\Query\Resolver\Argument\FieldEntityAttributesInter
  */
 class EntityAttributesForAst implements FieldEntityAttributesInterface
 {
-
     /**
      * @var ConfigInterface
      */
     protected $config;
+    /**
+     * @var Data
+     */
+    protected $helperData;
 
     /**
      * EntityAttributesForAst constructor.
      *
      * @param ConfigInterface $config
+     * @param Data $helperData
      */
-    public function __construct(ConfigInterface $config)
-    {
+    public function __construct(
+        ConfigInterface $config,
+        Data $helperData
+    ) {
         $this->config = $config;
+        $this->helperData = $helperData;
     }
 
     /**
@@ -58,6 +66,10 @@ class EntityAttributesForAst implements FieldEntityAttributesInterface
             $fields[$fieldName] = $fieldName;
         }
 
-        return $fields;
+        if ($this->helperData->versionCompare('2.3.4')) {
+            return $fields;
+        }
+
+        return array_keys($fields);
     }
 }
