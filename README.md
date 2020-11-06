@@ -31,7 +31,7 @@ To start working with Automatic Related Product GraphQL in Magento, you need to:
 
 ![arp](https://i.imgur.com/5hIdIBg.png)
 
-**Note:** Magenti 2 Auto Related Products requires installing [Mageplaza Auto Related Products](https://www.mageplaza.com/magento-2-automatic-related-products/) in your Magento installation. 
+**Note:** Magento 2 Auto Related Products requires installing [Mageplaza Auto Related Products](https://www.mageplaza.com/magento-2-automatic-related-products/) in your Magento installation. 
 
 ## 2. How to use
 
