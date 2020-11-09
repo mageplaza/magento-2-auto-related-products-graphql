@@ -10,7 +10,7 @@ You can use all these kinds of product blocks, but there will always be somethin
 
 If you ever worry about the page loading speed that significantly impacts your store’s performance and the customer experience, Magento 2 Auto Related Products will solve this problem right away. It uses the Ajax loading technique that loads the related products only instead of loading the whole page. This will quicken your website’s loading speed incredibly. 
 
-Especially, **Magento 2 Auto Related Products GraphQL is a part of Blog extension that adds GraphQL features, this support for PWA Studio.**
+Especially, **Magento 2 Auto Related Products GraphQL is a part of Blog extension that adds GraphQL features, this supports PWA Studio.**
 
 ## 1. How to install
 
