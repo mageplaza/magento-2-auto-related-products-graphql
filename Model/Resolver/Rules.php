@@ -91,10 +91,12 @@ class Rules implements ResolverInterface
         }
         switch ($field->getName()) {
             case 'mpARPProductPage':
-                $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch);
+                $sku = isset($args['sku']) ? $args['sku'] : null;
+                $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch, $sku);
                 break;
             case 'mpARPCategoryPage':
-                $searchResult = $this->autoRelatedRepository->getRuleCategoryPage($searchCriteria, $productSearch);
+                $id = isset($args['categoryId']) ? $args['categoryId'] : null;
+                $searchResult = $this->autoRelatedRepository->getRuleCategoryPage($searchCriteria, $productSearch, $id);
                 break;
             case 'mpARPShoppingCartPage':
                 $searchResult = $this->autoRelatedRepository->getRuleCartPage($searchCriteria, $productSearch);

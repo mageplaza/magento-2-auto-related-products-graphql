@@ -2,12 +2,14 @@ type Query {
     mpARPProductPage(
         filter: MageplazaAutoRelatedBlockRulesFilterInput @doc(description: "Identifies which Mageplaza Auto Related Products attributes to search for and return."),
         productFilter: ProductAttributeFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        sku: String @doc(description: "Product SKU to view"),
         pageSize: Int = 5 @doc(description: "Number of items should be shown on the page"),
         currentPage: Int = 1 @doc(description: "Allow page number to start from 1")
     ):MageplazaAutoRelatedRulesOutput @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules") @doc(description: "Queries search for Mageplaza Auto Related Products that match the filtered criteria.")
     mpARPCategoryPage(
         filter: MageplazaAutoRelatedBlockRulesFilterInput @doc(description: "Identifies which Mageplaza Auto Related Products attributes to search for and return."),
         productFilter: ProductAttributeFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        categoryId: String @doc(description: "Category ID to view"),
         pageSize: Int = 5 @doc(description: "Number of items should be shown on the page"),
         currentPage: Int = 1 @doc(description: "Allow page number to start from 1")
     ):MageplazaAutoRelatedRulesOutput @resolver(class: "Mageplaza\\AutoRelatedGraphQl\\Model\\Resolver\\Rules") @doc(description: "Queries search for Mageplaza Auto Related Products that match the filtered criteria.")
