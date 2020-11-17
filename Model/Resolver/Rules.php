@@ -22,6 +22,7 @@ declare(strict_types=1);
 
 namespace Mageplaza\AutoRelatedGraphQl\Model\Resolver;
 
+use Magento\Framework\GraphQl\Exception\GraphQlNoSuchEntityException;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\Resolver\Argument\SearchCriteria\Builder as SearchCriteriaBuilder;
@@ -89,21 +90,25 @@ class Rules implements ResolverInterface
             $args['filter'] = $args['productFilter'];
             $productSearch = $this->searchCriteriaBuilder->build('products', $args);
         }
-        switch ($field->getName()) {
-            case 'mpARPProductPage':
-                $sku = isset($args['sku']) ? $args['sku'] : null;
-                $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch, $sku);
-                break;
-            case 'mpARPCategoryPage':
-                $id = isset($args['categoryId']) ? $args['categoryId'] : null;
-                $searchResult = $this->autoRelatedRepository->getRuleCategoryPage($searchCriteria, $productSearch, $id);
-                break;
-            case 'mpARPShoppingCartPage':
-                $searchResult = $this->autoRelatedRepository->getRuleCartPage($searchCriteria, $productSearch);
-                break;
-            case 'mpARPCheckoutPage':
-                $searchResult = $this->autoRelatedRepository->getRuleOSCPage($searchCriteria, $productSearch);
-                break;
+        try {
+            switch ($field->getName()) {
+                case 'mpARPProductPage':
+                    $sku = isset($args['sku']) ? $args['sku'] : null;
+                    $searchResult = $this->autoRelatedRepository->getRuleProductPage($searchCriteria, $productSearch, $sku);
+                    break;
+                case 'mpARPCategoryPage':
+                    $id = isset($args['categoryId']) ? $args['categoryId'] : null;
+                    $searchResult = $this->autoRelatedRepository->getRuleCategoryPage($searchCriteria, $productSearch, $id);
+                    break;
+                case 'mpARPShoppingCartPage':
+                    $searchResult = $this->autoRelatedRepository->getRuleCartPage($searchCriteria, $productSearch);
+                    break;
+                case 'mpARPCheckoutPage':
+                    $searchResult = $this->autoRelatedRepository->getRuleOSCPage($searchCriteria, $productSearch);
+                    break;
+            }
+        } catch (\Exception $e) {
+            throw new GraphQlNoSuchEntityException(__($e->getMessage()));
         }
         $result = [];
         foreach ($searchResult->getItems() as $rule) {
