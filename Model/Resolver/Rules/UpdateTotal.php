@@ -60,11 +60,11 @@ class UpdateTotal implements ResolverInterface
             throw new GraphQlInputException(__('The ruleId field is required'));
         }
 
-        try{
+        try {
             return $this->autoRelatedRepository->updateTotal($args['ruleId']);
-        }catch(\Magento\Framework\Exception\InputException $e){
+        } catch (\Magento\Framework\Exception\InputException $e) {
             throw new GraphQlInputException(__('%1', $e->getMessage()));
-        }catch (\Magento\Framework\Exception\NoSuchEntityException $e){
+        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
             throw new GraphQlNoSuchEntityException(__('%1', $e->getMessage()));
         }
     }
