@@ -52,7 +52,7 @@ Click on Run in Postman to add these collections to your workspace quickly.
 
 ## 4. Contribute to this moduel
 
-Fee free to **Fork** and contribute to this module. You can also create a pull request, so we will merge your changes in main branch. 
+Feel free to **Fork** and contribute to this module. You can also create a pull request, so we will merge your changes in main branch. 
 
 ## 5. Get Support
 
