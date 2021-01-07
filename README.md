@@ -1,6 +1,6 @@
 # Magento 2 Auto Related Products GraphQL/PWA
 
-**Magento 2 Auto Related Products GraphQL is a part of Blog extension that adds GraphQL features, this supports PWA Studio.**
+**Magento 2 Auto Related Products GraphQL is a part of Mageplaza Auto Related Products extension that adds GraphQL features, this supports PWA Studio.**
 
 [Mageplaza Auto Related Products for Magento 2](https://www.mageplaza.com/magento-2-automatic-related-products/) is an effective solution for displaying and introducing to customers products related to what they are viewing in the store. 
 
