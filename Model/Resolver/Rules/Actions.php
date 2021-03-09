@@ -46,6 +46,28 @@ class Actions implements ResolverInterface
         /** @var Rule $rule */
         $rule = $value['model'];
 
-        return $rule->getRuleActions();
+        return $rule->arrayToDataModel($this->asArray($rule->getActions()->asArray()));
+    }
+
+    /**
+     * @param array $actions
+     *
+     * @return array
+     */
+    public function asArray(array $actions)
+    {
+        foreach ($actions as $key => $value) {
+            if ($key === 'value' && is_array($value)) {
+                $actions[$key] = implode(',', $value);
+            }
+            if (isset($value['value']) && is_array($value['value'])) {
+                $actions[$key]['value'] = implode(',', $value['value']);
+            }
+            if ($key === 'conditions') {
+                $actions[$key] = $this->asArray($value);
+            }
+        }
+
+        return $actions;
     }
 }
