@@ -2,7 +2,7 @@
   "name": "mageplaza/module-automatic-related-products-graphql",
   "description": "Mageplaza Automatic Related Products GraphQL extension",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "proprietary",
   "authors": [
     {
